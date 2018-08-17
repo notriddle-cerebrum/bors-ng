@@ -547,7 +547,7 @@ defmodule BorsNG.GitHub.Server do
   def get_installation_token!(installation_xref) do
     jwt_token = get_jwt_token()
     %{body: raw, status_code: 201} = HTTPoison.post!(
-      "#{site()}/installations/#{installation_xref}/access_tokens",
+      "#{site()}/app/installations/#{installation_xref}/access_tokens",
       "",
       [
         {"Authorization", "Bearer #{jwt_token}"},
