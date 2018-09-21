@@ -36,6 +36,9 @@ RUN if [ -d .git ]; then \
     elif [ -n ${SOURCE_COMMIT} ]; then \
         mkdir /src/_build/prod/rel/.git && \
         echo ${SOURCE_COMMIT} > /src/_build/prod/rel/.git/HEAD; \
+    fi && \
+    if [ -d /src/_build/prod/rel/.git/ ]; then \
+        cp -rv /src/_build/prod/rel/.git /src/_build/prod/rel/bors/.git; \
     fi
 
 ####
